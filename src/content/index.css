@@ -1,0 +1,15 @@
+body {
+    font: 14px "Century Gothic", Futura, sans-serif;
+    margin: 20px;
+    background: black;
+    background-image: url('./img/logo.jpg');
+    background-size: 30%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+ol,
+ul {
+    padding-left: 30px;
+}
