@@ -1,65 +1,86 @@
-import React from 'react';
+import React from 'react'
 import ReactDOM from 'react-dom';
-import Header from './components/header';
-import './content/index.css';
+import {
+    BrowserRouter as Router,
+    Route,
+    Link
+} from 'react-router-dom'
+import About from './about/index'
+import Marians from './mariansconcert/index'
 
+const logo_small = require('./content/img/logo_small.png')
 
-class Square extends React.Component {
-    render() {
-        return (
-            <button className="square">
-                {/* TODO */}
-            </button>
-        );
-    }
-}
-
-class Board extends React.Component {
-    renderSquare(i) {
-        return <Square />;
-    }
-
-    render() {
-        const status = 'Next player: X';
-
-        return (
+const BasicExample = () => (
+    <Router>
+        <div className="header">
             <div>
-                <div className="status">{status}</div>
-                <div className="board-row">
-                    {this.renderSquare(0)}
-                    {this.renderSquare(1)}
-                    {this.renderSquare(2)}
-                </div>
-                <div className="board-row">
-                    {this.renderSquare(3)}
-                    {this.renderSquare(4)}
-                    {this.renderSquare(5)}
-                </div>
-                <div className="board-row">
-                    {this.renderSquare(6)}
-                    {this.renderSquare(7)}
-                    {this.renderSquare(8)}
-                </div>
+                <img src={logo_small} alt="logo" />
             </div>
-        );
-    }
-}
+            <div>
+                <ul>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/about">About</Link></li>
+                    <li><Link to="/topics">Topics</Link></li>
+                    <li><Link to="/mariansconcert">Marians 2018</Link></li>
+                </ul>
+                <div className="headingDescription">
+                    OK Machang Events :. Wellington's own Sri Lankan entertainment group.
+                </div>
 
-class MainWindow extends React.Component {
-    render() {
-        document.title = 'OK Machang Evants';
-        return (
-            <div className="mainwindow">
-                <Header></Header>
-                WELCOME TO OK MACHANG EVENTS
+                <hr />
+
+                <Route exact path="/" component={Home} />
+                <Route path="/about" component={About} />
+                <Route path="/topics" component={Topics} />
+                <Route path="/mariansconcert" component={Marians} />
             </div>
-        );
-    }
-}
+        </div>
+    </Router>
+)
 
-// ========================================
-
-ReactDOM.render(
-    <MainWindow />,
-    document.getElementById('root')
+const Home = () => (
+    <div>
+        <h2>Home</h2>
+    </div>
 );
+
+const Topics = ({ match }) => (
+    <div>
+        <h2>Topics</h2>
+        <ul>
+            <li>
+                <Link to={`${match.url}/rendering`}>
+                    Rendering with React
+        </Link>
+            </li>
+            <li>
+                <Link to={`${match.url}/components`}>
+                    Components
+        </Link>
+            </li>
+            <li>
+                <Link to={`${match.url}/props-v-state`}>
+                    Props v. State
+        </Link>
+            </li>
+        </ul>
+
+        <Route path={`${match.url}/:topicId`} component={Topic} />
+        <Route exact path={match.url} render={() => (
+            <h3>Please select a topic.</h3>
+        )} />
+    </div>
+)
+
+const Topic = ({ match }) => (
+    <div>
+        <h3>{match.params.topicId}</h3>
+    </div>
+)
+
+export default BasicExample;
+
+ReactDOM.render((
+    <BasicExample />
+), document.getElementById('root'))
+

@@ -2,14 +2,63 @@ body {
     font: 14px "Century Gothic", Futura, sans-serif;
     margin: 20px;
     background: black;
-    background-image: url('./img/logo.jpg');
-    background-size: 30%;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
 }
 
-ol,
-ul {
-    padding-left: 30px;
+.header {
+    background-color: black;
+}
+
+.header img {
+    float: left;
+}
+
+.header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.header li {
+    float: left;
+}
+
+.header li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.header li a:hover {
+    background-color: #111;
+}
+
+.headingDescription {
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 80px;
+}
+
+IMG.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.logo {
+    height: 600px;
+}
+
+.footer {
+    width: 100%;
+    background: #F3F3F3;
+    background-image: url('./img/mariansposter.jpg');
+}
+
+.bottomIconBar ul {
+    float: left;
 }

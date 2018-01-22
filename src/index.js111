@@ -1,0 +1,64 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Header from './components/header';
+import Footer from './components/footer';
+import Marianse from './mariansconcert/index'
+import './content/index.css';
+import {
+    BrowserRouter as Router,
+    Route,
+    Link
+} from 'react-router-dom'
+
+
+class MainWindow extends React.Component {
+    render() {
+        document.title = 'OK Machang Evants';
+        return (
+            <div className="mainwindow">
+                <Header></Header>
+                WELCOME TO OK MACHANG EVENTS XXXXX
+                <Footer></Footer>
+            </div>
+        );
+    }
+}
+
+// ========================================
+
+const routes = [
+    {
+        path: '/mariansconcert',
+        component: Marianse
+    }
+    /*,
+    {
+        path: '/tacos',
+        component: Tacos,
+        routes: [
+            {
+                path: '/tacos/bus',
+                component: Bus
+            },
+            {
+                path: '/tacos/cart',
+                component: Cart
+            }
+        ]
+    }
+    */
+]
+
+// wrap <Route> and use this everywhere instead, then when
+// sub routes are added to any route it'll work
+const RouteWithSubRoutes = (route) => (
+    <Route path={route.path} render={props => (
+        // pass the sub-routes down to keep nesting
+        <route.component {...props} routes={route.routes} />
+    )} />
+)
+
+ReactDOM.render(
+    <MainWindow />,
+    document.getElementById('root')
+);
