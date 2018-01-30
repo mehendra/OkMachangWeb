@@ -62,3 +62,40 @@ IMG.displayed {
 .bottomIconBar ul {
     float: left;
 }
+
+.pageContent {
+    color: white;
+}
+
+.mariansPage {
+    text-align: center;
+    max-width: 1200px;
+}
+
+.mariansPosterContent {
+    float: left;
+}
+
+.sponsors {
+    float: right;
+    border: #333 1px solid;
+    min-width: 200px;
+    max-width: 300px;
+    text-align: center;
+}
+
+.sponsors img {
+    display: block;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+.silver .bronze .gold {
+    clear: both;
+    margin: 0 auto;
+    min-width: 198px;
+}
+
+.sponsorHeader {
+    background-color: #333;
+}
