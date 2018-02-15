@@ -16,11 +16,12 @@ const Marians = () => {
                 </center>
             </div>
             <div className="sponsors">
-                <div className="sponsorHeader">Proudly Supported By</div>
-                <div className="gold">GOLD</div>
                 <img src={Usla} rounded alt="Usla Logo" />
-                <img src={KiwiAuto} rounded alt="Kiwiauto Traders Logo" />
                 <img src={Relish} rounded alt="Rek=lish Logo" />
+            </div>
+
+            <div className="sponsors-bottom">
+                <img src={KiwiAuto} rounded alt="Kiwiauto Traders Logo" />
             </div>
         </div>
     );
